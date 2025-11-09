@@ -1,0 +1,63 @@
+
+readme я сгенерировала и вносила правки, он так должен выглядеть?
+
+# Bank Transaction Processor
+
+## Overview
+Java application for automated processing of bank transactions from text files with validation, archiving, and reporting.
+
+## Features
+- Parse transactions from text files
+- Validate account numbers and amounts
+- Auto-archive processed files
+- Generate detailed reports
+- Error handling with failed transactions
+- Console menu interface
+
+## Project Structure
+```
+src/
+├── exception/     # Custom exceptions
+├── model/         # Data models (Transaction, Account)
+└── service/       # Business logic
+```
+
+## Data Format
+Input files in `input/` folder:
+```
+12345-67890 98765-43210 1000
+11111-22222 33333-44444 500
+```
+- **From Account**: XXXXX-XXXXX (5 digits, hyphen, 5 digits)
+- **To Account**: XXXXX-XXXXX (5 digits, hyphen, 5 digits)
+- **Amount**: Positive integer
+
+## Quick Start
+1. Create `input/` folder
+2. Add transaction files (`*.txt`)
+3. Run application:
+```bash
+javac -d out src/**/*.java
+java -cp out service.Main
+```
+
+## Usage
+```
+=== BANK TRANSACTION SYSTEM ===
+1. Parse data from input
+2. Show report
+0. Exit
+Your choice:
+```
+
+## Output
+Processed files moved to `archive/`
+Reports saved to `output/output.txt`
+
+## Error Handling
+- Invalid account format
+- Invalid amounts (negative, decimal, zero)
+- Missing data
+- File system errors
+
+All errors are logged as failed transactions in the report.
